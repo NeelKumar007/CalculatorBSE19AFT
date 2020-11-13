@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="js/jquery.mobile-1.4.5.css">
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="cordova.js"></script>
+
+<script type = "text/javascript">
+    
+    function calc() {
+    
+    var fnum = parseFloat(document.getElementById("fnum").value)
+    var snum = parseFloat(document.getElementById("snum").value)
+    var op = document.getElementById("operation").value
+    
+    
+    if (op === "+") {
+        document.getElementById('results').value =  fnum+snum;
+
+    }else if (op === "-") {
+        document.getElementById('results').value = fnum-snum;
+        
+    }else if (op === "x") {
+        document.getElementById('results').value = fnum*snum;
+        
+    }else if (op === "/") {
+        document.getElementById('results').value = fnum/snum;
+    }
+        
+        document.getElementById('all_operations').value = fnum + " " + op + " " + snum;
+           
+    }
+    
+    </script>
+</head>
+
+<div data-role="page" id="pageone" data-theme="a">
+
+    <div data-role="header">
+        <h1>Simple Calculator</h1>  
+
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#pageone" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+                <li><a href="#pagetwo" class="ui-btn ui-icon-grid ui-btn-icon-left">Calculator</a></li>
+                <li><a href="#pagethree" class="ui-btn ui-icon-info ui-btn-icon-left">Help</a></li>
+                </ul>          
+    </div>
+    </div>
+   
+    
+    <div data-role="main" class="ui-content">
+        
+   
+       
+        <p>This is a jQuery mobile exercise which provides the user with a calculator for basic mathematical operations</p>
+    
+ 
+    </div>
+    
+    <div data-role="footer">
+        <h1>Homework</h1>
+        
+        </div>
+    
+    </div>
+
+
+    <div data-role="page" id="pagetwo" data-theme="a">
+
+        <div data-role="header">
+            <h1>Simple Calculator</h1>  
+    
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#pageone" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+                    <li><a href="#pagetwo" class="ui-btn ui-icon-grid ui-btn-icon-left">Calculator</a></li>
+                    <li><a href="#pagethree" class="ui-btn ui-icon-info ui-btn-icon-left">Help</a></li>
+                    </ul>          
+        </div>
+        </div>
+        
+        
+        <div data-role="main" class="ui-content">    
+            <form method="post" action="demoform.asp">
+                
+                <label for="fnum"></label>
+                <input type="text" name="fnum" id="fnum" maxlength="7" value = "0" >
+                
+                <label for="operation"></label>
+                <select name="operation" id="operation">
+                    <option value= "+">+</option>
+                    <option value= "-">-</option>
+                    <option value= "x">x</option>
+                    <option value= "/">/</option>
+                </select>
+                
+                <label for="snum"></label>
+                <input type="text" name="snum" id="snum" maxlength = "7" value = "0">
+                
+                <a href = "#pageresult" class="ui-btn" data-transition="slide"  onclick="calc();">Calculate</a>
+                
+                
+                
+            </form>
+        </div>
+        
+        <div data-role="footer">
+            <h1>Homework</h1>
+            
+            </div>
+        
+        </div>
+
+        <div data-role="page" id="pagethree" data-theme="a">
+
+            <div data-role="header">
+                <h1>Simple Calculator</h1>  
+        
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#pageone" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+                        <li><a href="#pagetwo" class="ui-btn ui-icon-grid ui-btn-icon-left">Calculator</a></li>
+                        <li><a href="#pagethree" class="ui-btn ui-icon-info ui-btn-icon-left">Help</a></li>
+                        </ul>          
+            </div>
+            </div>
+  
+            <div data-role="main" class="ui-content">    
+            <p>This is the help section and provides basic information about how to use the calculator</p>
+            <a href="#pagefour" class="ui-btn ui-icon-info ui-btn-icon-left">More Info</a>    
+            
+                </div>
+
+                <div data-role="footer">
+                    <h1>Homework</h1>
+                    
+                    </div>
+            </div>
+            
+            
+
+        <div data-role="page" data-dialog="true" id="pagefour" data-theme="a">
+            
+            <div data-role="header">
+                <h1>More info</h1>  
+            </div>
+            
+            <div data-role="main" class="ui-content">    
+            <p>You have requested more information about the App!</p>
+            <a href="#" class="ui-btn ui-icon-back ui-btn-icon-left" data-transition="flip" data-rel="back">Dissmiss</a>    
+            
+                </div>
+                </div>
+            
+                <div data-role="page" id="pageresult" data-theme="a">
+
+                    <div data-role="header">
+                        <h1>RESULTS</h1>  
+                
+                        <div data-role="navbar">
+                            <ul>
+                                <li><a href="#pageone" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+                                <li><a href="#pagetwo" class="ui-btn ui-icon-grid ui-btn-icon-left">Calculator</a></li>
+                                <li><a href="#pagethree" class="ui-btn ui-icon-info ui-btn-icon-left">Help</a></li>
+                                </ul>          
+                    </div>
+                    </div>
+                    
+                    
+                    <div data-role="main" class="ui-content">    
+                        <form method="post" action="demoform.asp">
+                
+                            <label for="all_operations">Operations</label>
+                            <input type="text" name="all_operations" id="all_operations">
+                            
+                           
+                            
+                            
+                            <label for="results">Results</label>
+                            <input type="text" name="results" id="results">
+                            
+                            <a href="#" class="ui-btn ui-icon-info ui-btn-icon-left" data-rel="back" id="btnBack">Back</a>
+                            
+                        </form>
+                    </div>
+                    
+                    <div data-role="footer">
+                        <h1>Homework</h1>
+                        
+                        </div>
+                    
+                    </div>
+            
